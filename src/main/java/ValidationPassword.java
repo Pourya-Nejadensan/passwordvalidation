@@ -3,7 +3,12 @@ public class ValidationPassword {
         return password.length() >= 8;
     }
     public static boolean hasPasswordDigit(String password) {
-        return true;
+        for(char c : password.toCharArray()){
+            if(Character.isDigit(c)){
+                return true;
+            }
+        }
+        return false;
     }
     public static boolean hasPasswordUpperAndLowerLetter(String password) {
         return true;
