@@ -87,4 +87,40 @@ public class ValidationPasswordTest {
         //THEN
         assertTrue(actual);
     }
+
+    @Test
+    public void hasPasswordUpperAndLowerLetterTest_whenPasswordHasUpperAndLowerLetter_thenReturnTrue(){
+        //GIVEN
+        String password = "PassWord";
+
+        //WHEN
+        boolean actual = ValidationPassword.hasPasswordUpperAndLowerLetter(password);
+
+        //THEN
+        assertTrue(actual);
+    }
+
+    @Test
+    public void hasPasswordUpperAndLowerLetterTest_whenPasswordHasOnlyUpperLetter_thenReturnFalse(){
+        //GIVEN
+        String password = "PASSWORD";
+
+        //WHEN
+        boolean actual = ValidationPassword.hasPasswordUpperAndLowerLetter(password);
+
+        //THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    public void hasPasswordUpperAndLowerLetterTest_whenPasswordHasOnlyLowerLetter_thenReturnFalse(){
+        //GIVEN
+        String password = "password";
+
+        //WHEN
+        boolean actual = ValidationPassword.hasPasswordUpperAndLowerLetter(password);
+
+        //THEN
+        assertFalse(actual);
+    }
 }
