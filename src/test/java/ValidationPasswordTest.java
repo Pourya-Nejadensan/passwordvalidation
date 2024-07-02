@@ -162,4 +162,28 @@ public class ValidationPasswordTest {
         //THEN
         assertTrue(actual);
     }
+
+    @Test
+    public void hasPasswordSpecialCharTest_whenPasswordHasSpecialChar_thenReturnTrue(){
+        //GIVEN
+        String password = "pass$word";
+
+        //WHEN
+        boolean actual = ValidationPassword.hasPasswordSpecialChar(password);
+
+        //THEN
+        assertTrue(actual);
+    }
+
+    @Test
+    public void hasPasswordSpecialCharTest_whenPasswordHasNoSpecialChar_thenReturnFalse(){
+        //GIVEN
+        String password = "password";
+
+        //WHEN
+        boolean actual = ValidationPassword.hasPasswordSpecialChar(password);
+
+        //THEN
+        assertFalse(actual);
+    }
 }

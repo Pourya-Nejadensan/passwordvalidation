@@ -45,4 +45,13 @@ public class ValidationPassword {
         }
         return false;
     }
+
+    public static boolean hasPasswordSpecialChar(String password) {
+        for(char c : password.toCharArray()){
+            if(!Character.isLetterOrDigit(c)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
