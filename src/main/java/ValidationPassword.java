@@ -37,7 +37,12 @@ public class ValidationPassword {
         return false;
     }
 
-    public static boolean isPasswordCommon(String password) {
-        return true;
+    public static boolean isPasswordCommon(String password, String[] commonPasswords) {
+        for(String commonPassword : commonPasswords){
+            if (password.equals(commonPassword)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
