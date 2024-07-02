@@ -1,6 +1,6 @@
 public class ValidationPassword {
     public static boolean isPasswordEightChar(String password) {
-        return true;
+        return password.length() >= 8;
     }
     public static boolean hasPasswordDigit(String password) {
         return true;
