@@ -21,6 +21,7 @@ jobs:
         cache: maven
     - run: mvn test --batch-mode
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
