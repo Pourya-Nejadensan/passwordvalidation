@@ -123,4 +123,30 @@ public class ValidationPasswordTest {
         //THEN
         assertFalse(actual);
     }
+
+    @Test
+    public void isPasswordCommonTest_whenPasswordIsCommon_thenReturnTrue(){
+        //GIVEN
+        String password = "password";
+        String[] commonPasswords = {"12345678", "password", "1234word", "PassWord1234"};
+
+        //WHEN
+        boolean actual = ValidationPassword.isPasswordCommon(password, commonPasswords);
+
+        //THEN
+        assertTrue(actual);
+    }
+
+    @Test
+    public void isPasswordCommonTest_whenPasswordIsUnique_thenReturnFalse(){
+        //GIVEN
+        String password = "passw1ord";
+        String[] commonPasswords = {"12345678", "password", "1234word", "PassWord1234"};
+
+        //WHEN
+        boolean actual = ValidationPassword.isPasswordCommon(password, commonPasswords);
+
+        //THEN
+        assertFalse(actual);
+    }
 }
