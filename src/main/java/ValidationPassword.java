@@ -1,4 +1,28 @@
+import java.security.SecureRandom;
+
 public class ValidationPassword {
+
+    public static String generateRandomSecurePassword(){
+        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:',.<>?/";
+        SecureRandom random = new SecureRandom();
+        StringBuilder sb = new StringBuilder(8);
+
+        do{
+            sb.delete(0, sb.length());
+            for (int i = 0; i < 8; i++) {
+                sb.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
+            }
+        }while(!isPasswordSecure(sb.toString()));
+
+        return sb.toString();
+    }
+
+    private static boolean isPasswordSecure(String password) {
+        return     isPasswordEightChar(password)
+                && hasPasswordDigit(password)
+                && hasPasswordUpperAndLowerLetter(password)
+                && hasPasswordSpecialChar(password);
+    }
 
     public static boolean isPasswordEightChar(String password) {
         return password.length() >= 8;
